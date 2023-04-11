@@ -6,7 +6,7 @@ COPY . .
 
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -o build/fizzbuzz .
 
-FROM scratch
+FROM gcr.io/distroless/base-debian11
 
 COPY --from=builder /app/build/fizzbuzz /
 
